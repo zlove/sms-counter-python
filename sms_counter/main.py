@@ -85,6 +85,8 @@ class SMSCounter(object):
         # since python 2.7 return a float
         messages = int(ceil(length / float(permessage)))
         remaining = (permessage * messages) - length
+        if not length:
+            remaining = 160
 
         returnset = {
             'encoding': encoding,
